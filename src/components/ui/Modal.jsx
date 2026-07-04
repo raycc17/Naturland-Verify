@@ -74,7 +74,7 @@ export default function Modal({ open, title, children, onClose }) {
             color: "#ECE6D3",
             textAlign: "center",
             margin: 0,
-            fontWeight: 300,
+            fontWeight: 200,
             fontSize: "26px",
           }}
         >

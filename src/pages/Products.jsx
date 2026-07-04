@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
 
-import { getProducts } from "../services/products";
-
 import PageContainer from "../components/layout/PageContainer";
-
-import Title from "../components/ui/Title";
-
+import ProductsHeader from "../components/products/ProductsHeader";
 import ProductCard from "../components/products/ProductCard";
+
+import { getProducts } from "../services/products";
 
 export default function Products() {
 
@@ -14,15 +12,23 @@ export default function Products() {
 
   useEffect(() => {
 
-    async function load() {
+    async function loadProducts() {
 
-      const data = await getProducts();
+      try {
 
-      setProducts(data);
+        const data = await getProducts();
+
+        setProducts(data);
+
+      } catch (error) {
+
+        console.error(error);
+
+      }
 
     }
 
-    load();
+    loadProducts();
 
   }, []);
 
@@ -30,25 +36,37 @@ export default function Products() {
 
     <PageContainer>
 
-      <Title>
-
-        Productos
-
-      </Title>
+      <ProductsHeader />
 
       {
 
-        products.map(product => (
+        products.length === 0
 
-          <ProductCard
+          ? (
 
-            key={product.id}
+            <p>
 
-            product={product}
+              No hay productos registrados.
 
-          />
+            </p>
 
-        ))
+          )
+
+          : (
+
+            products.map(product => (
+
+              <ProductCard
+
+                key={product.id}
+
+                product={product}
+
+              />
+
+            ))
+
+          )
 
       }
 

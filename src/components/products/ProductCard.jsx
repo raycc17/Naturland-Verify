@@ -8,35 +8,71 @@ export default function ProductCard({ product }) {
       style={{
         background: theme.colors.white,
         borderRadius: theme.radius,
-        padding: theme.spacing.md,
+        padding: "24px",
+        marginBottom: "20px",
         boxShadow: theme.shadows.card,
-        marginBottom: theme.spacing.md,
         border: `1px solid ${theme.colors.border}`
       }}
     >
 
-      <h3
+      <div
         style={{
-          margin: 0,
-          color: theme.colors.primary,
-          fontFamily: theme.typography.fontFamily,
-          fontWeight: theme.typography.medium
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center"
         }}
       >
-        {product.name}
-      </h3>
 
-      <p>
-        <strong>SKU:</strong> {product.sku}
-      </p>
+        <div>
 
-      <p>
+          <h2
+            style={{
+              color: theme.colors.primary,
+              marginBottom: "8px",
+              fontWeight: 500
+            }}
+          >
+            {product.name}
+          </h2>
 
-        <strong>Estado:</strong>{" "}
+          <p>
 
-        {product.active ? "💚 Activo" : "❤️ Inactivo"}
+            SKU: <strong>{product.sku}</strong>
 
-      </p>
+          </p>
+
+          <p>
+
+            {
+
+              product.active
+
+                ? "💚 Activo"
+
+                : "❤️ Inactivo"
+
+            }
+
+          </p>
+
+        </div>
+
+        <button
+          style={{
+            padding: "12px 20px",
+            borderRadius: theme.radius,
+            border: "none",
+            background: theme.colors.gold,
+            color: "#fff",
+            cursor: "pointer"
+          }}
+        >
+
+          Editar
+
+        </button>
+
+      </div>
 
     </div>
 

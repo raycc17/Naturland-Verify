@@ -1,76 +1,71 @@
+import Sidebar from "../components/Sidebar";
+import Topbar from "../components/Topbar";
 import DashboardCard from "../components/DashboardCard";
 
 export default function Admin() {
 
   return (
 
-    <main
+    <div
       style={{
-        minHeight: "100vh",
-        background: "#F6F5F1",
-        padding: "50px"
+        display:"flex",
+        background:"#F6F5F1"
       }}
     >
 
-      <h1
-        style={{
-          color: "#184C3A",
-          fontSize: "42px",
-          marginBottom: "10px"
-        }}
-      >
-        🌿 Naturland Hub
-      </h1>
+      <Sidebar/>
 
-      <p
+      <main
         style={{
-          color: "#666",
-          marginBottom: "40px"
-        }}
-      >
-        Centro de Operaciones
-      </p>
-
-      <div
-        style={{
-          display: "flex",
-          gap: "25px",
-          flexWrap: "wrap"
+          flex:1,
+          padding:"40px"
         }}
       >
 
-        <DashboardCard
-          title="Productos"
-          value="1"
-        />
+        <Topbar/>
 
-        <DashboardCard
-          title="Lotes"
-          value="1"
-          color="#A97735"
-        />
+        <div
+          style={{
+            display:"flex",
+            gap:"25px",
+            flexWrap:"wrap"
+          }}
+        >
 
-        <DashboardCard
-          title="Códigos"
-          value="1000"
-          color="#0B7C66"
-        />
+          <DashboardCard
+            title="Productos"
+            value="1"
+          />
 
-        <DashboardCard
-          title="Verificaciones"
-          value="0"
-          color="#0C5E9E"
-        />
+          <DashboardCard
+            title="Lotes"
+            value="1"
+            color="#B88430"
+          />
 
-        <DashboardCard
-          title="Alertas"
-          value="0"
-          color="#C0392B"
-        />
+          <DashboardCard
+            title="Códigos"
+            value="1000"
+            color="#007B5E"
+          />
 
-      </div>
+          <DashboardCard
+            title="Verificaciones"
+            value="0"
+            color="#2C6BED"
+          />
 
-    </main>
+          <DashboardCard
+            title="Alertas"
+            value="0"
+            color="#C53A2F"
+          />
+
+        </div>
+
+      </main>
+
+    </div>
 
   );
 

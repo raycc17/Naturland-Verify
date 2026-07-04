@@ -17,10 +17,10 @@ export default function Modal({ open, title, children, onClose }) {
     >
       <div
         style={{
-          width: "700px",
+          width: "595px",
           maxWidth: "100%",
           borderRadius: "30px",
-          padding: "50px",
+          padding: "42px",
           background:
             "linear-gradient(135deg,#5e8487 0%, #3a2e20 45%, #052b04 100%)",
           boxShadow: "0 30px 80px rgba(0,0,0,.35)",
@@ -50,15 +50,22 @@ export default function Modal({ open, title, children, onClose }) {
 
         {/* Logo */}
 
-        <div
-          style={{
-            textAlign: "center",
-            fontSize: "54px",
-            marginBottom: "8px",
-          }}
-        >
-          🌿
-        </div>
+<div
+  style={{
+    textAlign: "center",
+    marginBottom: "14px",
+  }}
+>
+  <img
+    src="/logo50.png"
+    alt="Naturland"
+    style={{
+      width: "58px",
+      height: "58px",
+      objectFit: "contain",
+    }}
+  />
+</div>
 
         {/* Título */}
 
@@ -74,43 +81,7 @@ export default function Modal({ open, title, children, onClose }) {
           {title}
         </h2>
 
-        {/* Detalle dorado */}
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "10px",
-            marginTop: "18px",
-            marginBottom: "45px",
-          }}
-        >
-          <div
-            style={{
-              width: "55px",
-              height: "2px",
-              background: "#B88430",
-            }}
-          />
-
-          <div
-            style={{
-              width: "8px",
-              height: "8px",
-              borderRadius: "50%",
-              background: "#B88430",
-            }}
-          />
-
-          <div
-            style={{
-              width: "55px",
-              height: "2px",
-              background: "#B88430",
-            }}
-          />
-        </div>
+    <div style={{ marginBottom: "28px" }} />
 
         {children}
       </div>

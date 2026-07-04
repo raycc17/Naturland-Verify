@@ -60,8 +60,8 @@ export default function Modal({ open, title, children, onClose }) {
     src="/logo50.png"
     alt="Naturland"
     style={{
-      width: "58px",
-      height: "58px",
+      width: "50px",
+      height: "50px",
       objectFit: "contain",
     }}
   />
@@ -75,7 +75,7 @@ export default function Modal({ open, title, children, onClose }) {
             textAlign: "center",
             margin: 0,
             fontWeight: 300,
-            fontSize: "52px",
+            fontSize: "26px",
           }}
         >
           {title}

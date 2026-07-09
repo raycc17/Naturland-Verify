@@ -6,16 +6,18 @@ export default function ProductForm() {
   const [sku, setSku] = useState("");
   const [description, setDescription] = useState("");
 
-function handleSubmit(e) {
+function handleSubmit(e){
+
   e.preventDefault();
 
-  alert("El formulario sí está funcionando");
+  console.log("SE EJECUTÓ EL SUBMIT");
 
   console.log({
     name,
     sku,
-    description,
+    description
   });
+
 }
 
   return (

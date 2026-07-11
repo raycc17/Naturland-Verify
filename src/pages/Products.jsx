@@ -25,7 +25,7 @@ export default function Products() {
     loadProducts();
   }, []);
 
-  async function handleSaveProduct(product) {
+async function handleSaveProduct(product) {
   try {
     await createProduct(product);
 
@@ -33,13 +33,12 @@ export default function Products() {
 
     setOpen(false);
 
-catch (error) {
-  console.error(error);
+  } catch (error) {
+    console.error(error);
 
-  alert(error.message);
+    alert(error.message);
+  }
 }
-}
-
   
   return (
     <PageContainer>

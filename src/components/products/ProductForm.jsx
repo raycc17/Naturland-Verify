@@ -1,24 +1,26 @@
 import { useState } from "react";
 
-export default function ProductForm() {
-
+export default function ProductForm({ onSave, onCancel }) {
+  
   const [name, setName] = useState("");
   const [sku, setSku] = useState("");
   const [description, setDescription] = useState("");
 
-function handleSubmit(e){
-
+async function handleSubmit(e) {
   e.preventDefault();
 
-  console.log("SE EJECUTÓ EL SUBMIT");
-
-  console.log({
+  await onSave({
     name,
     sku,
-    description
+    description,
+    active: true,
   });
 
+  setName("");
+  setSku("");
+  setDescription("");
 }
+  
 
   return (
 
@@ -175,18 +177,17 @@ function handleSubmit(e){
         }}
       >
 
-        <button
-          type="button"
-          style={{
-            background:"transparent",
-            color:"#ECE6D3",
-            border:"none"
-          }}
-        >
-
-          Cancelar
-
-        </button>
+<button
+  type="button"
+  onClick={onCancel}
+  style={{
+    background:"transparent",
+    color:"#ECE6D3",
+    border:"none"
+  }}
+>
+  Cancelar
+</button>
 
         <button
           type="submit"

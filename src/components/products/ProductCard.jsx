@@ -27,7 +27,7 @@ export default function ProductCard({ product }) {
 
           <h2
             style={{
-              color: theme.colors.primary.
+              color: theme.colors.primary
               marginBottom: "8px",
               fontWeight: 500
             }}

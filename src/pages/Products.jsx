@@ -33,10 +33,11 @@ export default function Products() {
 
     setOpen(false);
 
-  } catch (error) {
-    console.error(error);
-    alert("No se pudo guardar el producto.");
-  }
+catch (error) {
+  console.error(error);
+
+  alert(error.message);
+}
 }
 
   

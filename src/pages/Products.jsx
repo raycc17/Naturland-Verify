@@ -3,75 +3,54 @@ import { useEffect, useState } from "react";
 import PageContainer from "../components/layout/PageContainer";
 import ProductsHeader from "../components/products/ProductsHeader";
 import ProductCard from "../components/products/ProductCard";
+import ProductForm from "../components/products/ProductForm";
+import Modal from "../components/ui/Modal";
 
 import { getProducts } from "../services/products";
 
 export default function Products() {
-
   const [products, setProducts] = useState([]);
+  const [open, setOpen] = useState(false);
+
+  async function loadProducts() {
+    try {
+      const data = await getProducts();
+      setProducts(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   useEffect(() => {
-
-    async function loadProducts() {
-
-      try {
-
-        const data = await getProducts();
-
-        setProducts(data);
-
-      } catch (error) {
-
-        console.error(error);
-
-      }
-
-    }
-
     loadProducts();
-
   }, []);
 
   return (
-
     <PageContainer>
 
-      <ProductsHeader />
+      <ProductsHeader
+        onNewProduct={() => setOpen(true)}
+      />
 
-      {
+      {products.length === 0 ? (
+        <p>No hay productos registrados.</p>
+      ) : (
+        products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+          />
+        ))
+      )}
 
-        products.length === 0
-
-          ? (
-
-            <p>
-
-              No hay productos registrados.
-
-            </p>
-
-          )
-
-          : (
-
-            products.map(product => (
-
-              <ProductCard
-
-                key={product.id}
-
-                product={product}
-
-              />
-
-            ))
-
-          )
-
-      }
+      <Modal
+        open={open}
+        title="Registrar nuevo producto"
+        onClose={() => setOpen(false)}
+      >
+        <ProductForm />
+      </Modal>
 
     </PageContainer>
-
   );
-
 }

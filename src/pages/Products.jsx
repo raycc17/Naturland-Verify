@@ -32,13 +32,11 @@ async function handleSaveProduct(product) {
     await loadProducts();
 
     setOpen(false);
+  } catch (error) {
+    console.error(error);
 
-catch (error) {
-  console.error(error);
-
-  alert(
-    JSON.stringify(error, null, 2)
-  );
+    alert(JSON.stringify(error, null, 2));
+  }
 }
   
   return (

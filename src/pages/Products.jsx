@@ -33,11 +33,12 @@ async function handleSaveProduct(product) {
 
     setOpen(false);
 
-  } catch (error) {
-    console.error(error);
+catch (error) {
+  console.error(error);
 
-    alert(error.message);
-  }
+  alert(
+    JSON.stringify(error, null, 2)
+  );
 }
   
   return (

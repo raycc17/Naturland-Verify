@@ -63,7 +63,10 @@ export default function Products() {
         title="Registrar nuevo producto"
         onClose={() => setOpen(false)}
       >
-        <ProductForm />
+<ProductForm
+  onSave={handleSaveProduct}
+  onCancel={() => setOpen(false)}
+/>
       </Modal>
 
     </PageContainer>

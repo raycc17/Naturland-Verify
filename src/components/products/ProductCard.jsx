@@ -27,7 +27,7 @@ export default function ProductCard({ product }) {
 
           <h2
             style={{
-              color: theme.colors.primary,
+              color: theme.colors.primary.
               marginBottom: "8px",
               fontWeight: 500
             }}
@@ -57,20 +57,43 @@ export default function ProductCard({ product }) {
 
         </div>
 
-        <button
-          style={{
-            padding: "12px 20px",
-            borderRadius: theme.radius,
-            border: "none",
-            background: theme.colors.gold,
-            color: "#fff",
-            cursor: "pointer"
-          }}
-        >
+<div
+  style={{
+    display: "flex",
+    gap: "12px",
+    alignItems: "center"
+  }}
+>
 
-          Editar
+  <button
+    style={{
+      width: "42px",
+      height: "42px",
+      borderRadius: "50%",
+      border: "none",
+      background: "#ECE6D3",
+      cursor: "pointer",
+      fontSize: "18px"
+    }}
+  >
+    ✏️
+  </button>
 
-        </button>
+  <button
+    style={{
+      width: "42px",
+      height: "42px",
+      borderRadius: "50%",
+      border: "none",
+      background: "#ECE6D3",
+      cursor: "pointer",
+      fontSize: "18px"
+    }}
+  >
+    👁️
+  </button>
+
+</div>
 
       </div>
 

@@ -6,7 +6,7 @@ import ProductCard from "../components/products/ProductCard";
 import ProductForm from "../components/products/ProductForm";
 import Modal from "../components/ui/Modal";
 
-import { getProducts } from "../services/products";
+import { getProducts, createProduct } from "../services/products";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -25,6 +25,21 @@ export default function Products() {
     loadProducts();
   }, []);
 
+  async function handleSaveProduct(product) {
+  try {
+    await createProduct(product);
+
+    await loadProducts();
+
+    setOpen(false);
+
+  } catch (error) {
+    console.error(error);
+    alert("No se pudo guardar el producto.");
+  }
+}
+
+  
   return (
     <PageContainer>
 

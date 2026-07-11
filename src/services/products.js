@@ -17,7 +17,10 @@ export async function createProduct(product) {
     .insert([product])
     .select();
 
-  if (error) throw error;
+  if (error) {
+    console.error("Supabase error:", error);
+    throw error;
+  }
 
   return data;
 }
